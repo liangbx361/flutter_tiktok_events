@@ -14,11 +14,11 @@ public class TiktokEventsPlugin: NSObject, FlutterPlugin {
     switch call.method {
     case "init":
       initSdk(call: call, result: result)
-    case "setIdentify":
+    case "setIdentity":
       setIdentity(call: call, result: result)
     case "logout":
       logout(call: call, result: result)
-    default:
+    default:     
       result(FlutterMethodNotImplemented)
     }
   }
@@ -40,7 +40,9 @@ public class TiktokEventsPlugin: NSObject, FlutterPlugin {
 
     TikTokBusiness.initializeSdk(config) { success, error in
       if !success {  // initialization failed
-        result(FlutterError(code: "\(error.code)", message: error.message, details: nil))
+        result(
+          FlutterError(
+            code: "INITIALIZATION_FAILED", message: error?.localizedDescription, details: nil))
       } else {  // initialization successful
         result(nil)
       }
@@ -59,12 +61,13 @@ public class TiktokEventsPlugin: NSObject, FlutterPlugin {
     let email = args["email"] as? String
     let phoneNumber = args["phoneNumber"] as? String
 
-    TikTokBusinessSdk.identify(userId, userName: userName, email: email, phoneNumber: phoneNumber)
+    TikTokBusiness.identify(withExternalID: userId, externalUserName: userName, phoneNumber: phoneNumber, email: email)
+      
     result(nil)
   }
 
   private func logout(call: FlutterMethodCall, result: @escaping FlutterResult) {
-    TikTokBusinessSdk.logout()
+    TikTokBusiness.logout()
     result(nil)
   }
 }

@@ -3,7 +3,7 @@
 # Run `pod lib lint flutter_tiktok_events.podspec` to validate before publishing.
 #
 Pod::Spec.new do |s|
-  s.name             = 'tiktok_events'
+  s.name             = 'flutter_tiktok_events'
   s.version          = '0.1.0'
   s.summary          = 'A new Flutter plugin project.'
   s.description      = <<-DESC

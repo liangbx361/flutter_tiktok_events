@@ -12,7 +12,12 @@ class TiktokEvents {
     return TiktokEventsPlatform.instance.init(appId, tiktokAppId, debug);
   }
 
-  Future<void> setIdentity(String userId, String? userName, String? email, String? phoneNumber) {
+  Future<void> setIdentity({
+    required String userId,
+    String? userName,
+    String? email,
+    String? phoneNumber,
+  }) {
     return TiktokEventsPlatform.instance.setIdentity(userId, userName, email, phoneNumber);
   }
 

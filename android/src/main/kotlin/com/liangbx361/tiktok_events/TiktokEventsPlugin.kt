@@ -38,7 +38,7 @@ class TiktokEventsPlugin : FlutterPlugin, MethodCallHandler {
     override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
         when (call.method) {
             "init" -> init(call, result)
-            "setIdentify" -> setIdentify(call, result)
+            "setIdentity" -> setIdentity(call, result)
             "logout" -> logout(call, result)
             else -> result.notImplemented()
         }
@@ -70,7 +70,7 @@ class TiktokEventsPlugin : FlutterPlugin, MethodCallHandler {
         })
     }
 
-    private fun setIdentify(call: MethodCall, result: MethodChannel.Result) {
+    private fun setIdentity(call: MethodCall, result: MethodChannel.Result) {
         val userId = call.argument<String>("userId")
         val userName = call.argument<String?>("userName")
         val email = call.argument<String?>("email")

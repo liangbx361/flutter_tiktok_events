@@ -40,11 +40,11 @@ flutter:
     # https://flutter.dev/to/pubspec-plugin-platforms
     # -------------------
       android:
-        package: com.example.flutter_tiktok_events
-        pluginClass: FlutterTiktokEventsPlugin
+        package: com.liangbx361.tiktok_events
+        pluginClass: TiktokEventsPlugin
 
       ios:
-        pluginClass: FlutterTiktokEventsPlugin
+        pluginClass: TiktokEventsPlugin
     # -------------------
 
   # To add assets to your plugin package, add an assets section, like this:
